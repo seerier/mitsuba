@@ -2,6 +2,10 @@ import SCons
 import sys
 import glob
 import os
+import codecs  # Ensure codecs is imported
+
+os.environ['PYTHONIOENCODING'] = 'utf-8'
+
 
 resources = []
 plugins = []
@@ -10,6 +14,34 @@ winstubs = []
 
 Export('SCons', 'sys', 'os', 'glob', 'resources',
         'plugins', 'stubs', 'winstubs')
+
+
+
+
+'''
+# Define a function to read files with utf-8 encoding
+def read_with_utf8(filename):
+    with codecs.open(filename, 'r', 'utf-8') as f:
+        return f.read()
+
+# Override the SConscript function to use utf-8 encoding
+original_SConscript = SConscript
+def utf8_SConscript(scriptFile, *args, **kwargs):
+    scriptContent = read_with_utf8(scriptFile)
+    exec(scriptContent, globals())
+    return original_SConscript(scriptFile, *args, **kwargs)
+
+SConscript = utf8_SConscript
+'''
+
+
+
+
+
+
+
+
+
 
 # Configure the build framework
 env = SConscript('build/SConscript.configure')

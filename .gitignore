@@ -48,3 +48,8 @@ mitsuba.*.log
 .settings
 .cproject
 .project
+
+
+# gxzhao added
+myqt
+.vs
