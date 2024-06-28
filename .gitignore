@@ -33,6 +33,7 @@ dist
 # Dependencies
 # gxzhao chooses to track dependencies
 ###dependencies
+dependencies/myscons
 
 # OSX binaries and byproducts
 Mitsuba.app
