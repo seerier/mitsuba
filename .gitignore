@@ -55,4 +55,4 @@ mitsuba.*.log
 # gxzhao added
 myqt
 .vs
-Qt5-resources
+#Qt5-resources
